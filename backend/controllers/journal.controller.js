@@ -1,7 +1,8 @@
 import Journal from "../models/journal.model.js";
 const fetchJournal = async (req, res) => {
+    // console.log(req.userId.id)
     try {
-        const journal = await Journal.find();
+        const journal = await Journal.find({ user: req.userId.id });
         return res.status(200).json({ message: "Journal fetched", journal });
     } catch (error) {
         return res.status(500).json({ message: "Journal not fetched" });
@@ -10,7 +11,7 @@ const fetchJournal = async (req, res) => {
 const createJournal = async (req, res) => {
     try {
         const { text } = req.body;
-        const journal = new Journal({ text: text });
+        const journal = new Journal({ text: text, user: req.userId.id });
         const newJournal = await journal.save();
         return res.status(201).json({ message: "Journal created", newJournal });
     } catch (error) {

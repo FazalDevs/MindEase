@@ -56,7 +56,7 @@ export const loginUser = async (req, res) => {
 }
 export const logoutUser = async (req, res) => {
     try {
-        await res.clearCookie('jwt', {
+        await res.clearCookie("jwt", {
             path: '/'
         });
         res.status(200).json({ message: "User logged out" });
