@@ -11,7 +11,7 @@ const Journal = () => {
         const fetchData = async () => {
             try {
                 setloading(true);
-                const response = await axios.get("http://localhost:4005/journal/fetch", {
+                const response = await axios.get("https://mindease-juv4.onrender.com/journal/fetch", {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const Journal = () => {
         try {
             // setloading(true);
             const response = await axios.post(
-                "http://localhost:4005/journal/create",
+                "https://mindease-juv4.onrender.com/journal/create",
                 { text: newjournals },
                 { withCredentials: true }
             );
@@ -51,7 +51,7 @@ const Journal = () => {
     const deleteJournal = async (id) => {
         try {
             // setloading(true);
-            const response = await axios.delete(`http://localhost:4005/journal/delete/${id}`, {
+            const response = await axios.delete(`https://mindease-juv4.onrender.com/journal/delete/${id}`, {
                 withCredentials: true,
             });
             setjournal(journal.filter((entry) => entry._id !== id));

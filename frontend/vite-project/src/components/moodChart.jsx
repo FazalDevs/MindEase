@@ -14,7 +14,7 @@ const MoodChart = () => {
     useEffect(() => {
         const fetchMoods = async () => {
             try {
-                const response = await axios.get("http://localhost:4005/mood/fetch", {
+                const response = await axios.get("https://mindease-juv4.onrender.com/mood/fetch", {
                     withCredentials: true,
                 });
 
@@ -47,7 +47,7 @@ const MoodChart = () => {
                 });
 
                 const response = await axios.post(
-                    "http://localhost:4005/mood/create",
+                    "https://mindease-juv4.onrender.com/mood/create",
                     {
                         date: today,
                         mood: Number(newMood),

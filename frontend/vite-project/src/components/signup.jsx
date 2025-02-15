@@ -13,7 +13,7 @@ function Signup({ setToken }) {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:4005/user/register",
+                "https://mindease-juv4.onrender.com/user/register",
                 {
                     name: username,
                     email,

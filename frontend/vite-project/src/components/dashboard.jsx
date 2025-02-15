@@ -12,7 +12,7 @@ const Dashboard = () => {
             localStorage.removeItem("jwt");
 
 
-            await axios.get("http://localhost:4005/user/logout", {
+            await axios.get("https://mindease-juv4.onrender.com/user/logout", {
                 withCredentials: true,
                 headers: {
                     "Content-Type": "application/json",

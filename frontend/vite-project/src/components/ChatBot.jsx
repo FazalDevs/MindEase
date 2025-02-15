@@ -13,7 +13,7 @@ const ChatBot = () => {
 
         try {
 
-            const { data } = await axios.post("http://localhost:4005/chat/chat", {
+            const { data } = await axios.post("https://mindease-juv4.onrender.com/chat/chat", {
                 message: userMessage,
             });
 

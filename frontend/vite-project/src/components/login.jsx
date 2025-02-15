@@ -12,7 +12,7 @@ function Login({ setToken }) {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:4005/user/login",
+                "https://mindease-juv4.onrender.com/user/login",
                 { email, password },
                 {
                     withCredentials: true,
