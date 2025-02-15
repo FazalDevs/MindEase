@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const HUGGING_FACE_API_URL = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium";
+const HUGGING_FACE_API_URL = "https://api-inference.huggingface.co/models/facebook/blenderbot-3B";
 const HUGGING_FACE_API_KEY = process.env.HUGGING_FACE_API_KEY;
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

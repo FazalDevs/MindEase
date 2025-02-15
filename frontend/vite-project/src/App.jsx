@@ -30,11 +30,11 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/mood" element={<MoodChart />} />
-        <Route path="/chat" element={<ChatBot />} />
+        <Route path="/mood" element={token ? <MoodChart /> : <Navigate to='/login' />} />
+        <Route path="/chat" element={token ? <ChatBot /> : <Navigate to='/login' />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/journal" element={<Journal />} />
+        <Route path="/journal" element={token ? <Journal /> : <Navigate to='/login' />} />
         <Route path="/register" element={<Signup setToken={setToken} />} />
         <Route
           path="/dashboard"
