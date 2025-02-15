@@ -43,10 +43,13 @@ MindEase is an AI-powered mental health companion designed to provide support, g
 ![Home Page](screenshots/home.png)
 
 ### 📊 Mood Tracker
-![Mood Tracker](screenshots/mood_tracker.png)
+![Mood Tracker](screenshots/mood.png)
 
 ### 📔 Journaling Feature
-![Journaling](screenshots/journaling.png)
+![Journaling](screenshots/journal.png)
+
+### 💬 Chat with AI
+![Chat with AI](screenshots/chat.png)
 
 ## 🏗 Future Enhancements
 - 🔄 Custom AI model for therapy
