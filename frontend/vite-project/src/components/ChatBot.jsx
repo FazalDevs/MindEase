@@ -5,20 +5,21 @@ import Navbar from "./navbar";
 const ChatBot = () => {
     const [userMessage, setUserMessage] = useState("");
     const [chatHistory, setChatHistory] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const sendMessage = async () => {
-        if (!userMessage.trim()) return;
+        if (!userMessage.trim() || loading) return;
 
         setChatHistory((prev) => [...prev, { sender: "user", message: userMessage }]);
+        setUserMessage(""); // Clear input field immediately
+        setLoading(true); // Start loading state
 
         try {
-
             const { data } = await axios.post("https://mindease-juv4.onrender.com/chat/chat", {
                 message: userMessage,
             });
 
-            const botMessage = data.botMessage;
-            setChatHistory((prev) => [...prev, { sender: "bot", message: botMessage }]);
+            setChatHistory((prev) => [...prev, { sender: "bot", message: data.botMessage }]);
         } catch (error) {
             console.error("Error communicating with the chatbot:", error.message);
             setChatHistory((prev) => [
@@ -27,7 +28,7 @@ const ChatBot = () => {
             ]);
         }
 
-        setUserMessage("");
+        setLoading(false); // Stop loading state
     };
 
     return (
@@ -64,6 +65,15 @@ const ChatBot = () => {
                                 </div>
                             ))
                         )}
+
+                        {loading && (
+                            <div className="mb-4 flex justify-start">
+                                <div className="rounded-lg p-3 bg-gray-200 text-gray-800 max-w-sm">
+                                    <strong>Bot:</strong>
+                                    <p className="mt-1">Bot is typing...</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex items-center p-4 border-t bg-gray-100">
@@ -73,12 +83,14 @@ const ChatBot = () => {
                             onChange={(e) => setUserMessage(e.target.value)}
                             placeholder="Type your message..."
                             className="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            disabled={loading} // Disable input while loading
                         />
                         <button
                             onClick={sendMessage}
-                            className="ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                            className="ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400"
+                            disabled={loading} // Disable button while loading
                         >
-                            Send
+                            {loading ? "Sending..." : "Send"}
                         </button>
                     </div>
                 </div>
