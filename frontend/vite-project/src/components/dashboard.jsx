@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from 'axios'
 import toast from 'react-hot-toast';
 const Dashboard = () => {
     const navigate = useNavigate();
     const token = localStorage.getItem("jwt")
-
+    const [menuOpen, setMenuOpen] = useState(false);
     const handleLogout = async () => {
         try {
             localStorage.removeItem("jwt");
@@ -37,43 +38,44 @@ const Dashboard = () => {
                         <a href="/dashboard" className="text-3xl font-bold text-blue-600">
                             MindEase
                         </a>
-                        <div className="space-x-6 flex items-center">
-                            <a
-                                href="/journal"
-                                className="text-gray-700 hover:text-blue-600 font-medium transition"
-                            >
-                                Journal
-                            </a>
-                            <a
-                                href="/mood"
-                                className="text-gray-700 hover:text-blue-600 font-medium transition"
-                            >
-                                Track Your Mood
-                            </a>
-                            <a
-                                href="/chat"
-                                className="text-gray-700 hover:text-blue-600 font-medium transition"
-                            >
-                                Chat with AI
-                            </a>
-
+                        <div className="hidden md:flex space-x-6 items-center">
+                            <a href="/journal" className="text-gray-700 hover:text-blue-600 font-medium transition">Journal</a>
+                            <a href="/mood" className="text-gray-700 hover:text-blue-600 font-medium transition">Track Your Mood</a>
+                            <a href="/chat" className="text-gray-700 hover:text-blue-600 font-medium transition">Chat with AI</a>
                             {token ? (
-                                <button
-                                    onClick={handleLogout}
-                                    className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition"
-                                >
+                                <button onClick={handleLogout} className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition">
                                     Logout
                                 </button>
                             ) : (
-                                <a
-                                    href="/login"
-                                    className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
-                                >
+                                <a href="/login" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
                                     Login
                                 </a>
                             )}
                         </div>
+
+                        {/* Mobile Menu Toggle */}
+                        <button className="md:hidden p-2 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
+                            {menuOpen ? <span className="text-2xl">✖</span> : <span className="text-2xl">☰</span>}
+                        </button>
                     </div>
+
+                    {/* Mobile Menu */}
+                    {menuOpen && (
+                        <div className="md:hidden bg-white shadow-md absolute w-full left-0 top-16 p-4 flex flex-col space-y-4 items-center">
+                            <a href="/journal" className="text-gray-700 hover:text-blue-600 font-medium transition">Journal</a>
+                            <a href="/mood" className="text-gray-700 hover:text-blue-600 font-medium transition">Track Your Mood</a>
+                            <a href="/chat" className="text-gray-700 hover:text-blue-600 font-medium transition">Chat with AI</a>
+                            {token ? (
+                                <button onClick={handleLogout} className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition">
+                                    Logout
+                                </button>
+                            ) : (
+                                <a href="/login" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+                                    Login
+                                </a>
+                            )}
+                        </div>
+                    )}
                 </nav>
             </div>
             <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 p-8 flex flex-col items-center">
