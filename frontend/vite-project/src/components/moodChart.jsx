@@ -143,40 +143,42 @@ const MoodChart = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div>
             <Navbar />
-            <div className="flex-grow overflow-y-auto px-4">
-                <div className="w-full max-w-4xl mx-auto bg-gray-100 shadow-md rounded-lg py-6 px-4 md:py-10 md:px-8 mt-10">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">
-                        Mood Tracker
-                    </h2>
+            <div className="flex flex-col min-h-screen">
+                <div className="flex-grow overflow-y-auto px-4">
+                    <div className="w-full max-w-4xl mx-auto bg-gray-100 shadow-md rounded-lg py-6 px-4 md:py-10 md:px-8 mt-10">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">
+                            Mood Tracker
+                        </h2>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center mb-6 text-sm text-gray-600">
-                        <p>
-                            <span className="text-red-500 font-bold">1</span>: Sad |
-                            <span className="text-yellow-500 font-bold">3</span>: Neutral |
-                            <span className="text-green-500 font-bold">5</span>: Happy
-                        </p>
-                    </div>
+                        <div className="flex flex-col md:flex-row justify-between items-center mb-6 text-sm text-gray-600">
+                            <p>
+                                <span className="text-red-500 font-bold">1</span>: Sad |
+                                <span className="text-yellow-500 font-bold">3</span>: Neutral |
+                                <span className="text-green-500 font-bold">5</span>: Happy
+                            </p>
+                        </div>
 
-                    <div className="mb-6 flex flex-col md:flex-row items-center gap-4">
-                        <input
-                            type="number"
-                            value={newMood}
-                            onChange={(e) => setNewMood(e.target.value)}
-                            placeholder="Enter mood (1-5)"
-                            className="w-full md:w-3/4 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <button
-                            onClick={handleAddMood}
-                            className="w-full md:w-auto px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
-                        >
-                            Add Mood
-                        </button>
-                    </div>
+                        <div className="mb-6 flex flex-col md:flex-row items-center gap-4">
+                            <input
+                                type="number"
+                                value={newMood}
+                                onChange={(e) => setNewMood(e.target.value)}
+                                placeholder="Enter mood (1-5)"
+                                className="w-full md:w-3/4 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button
+                                onClick={handleAddMood}
+                                className="w-full md:w-auto px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+                            >
+                                Add Mood
+                            </button>
+                        </div>
 
-                    <div className="h-72 w-full">
-                        <Line data={chartData} options={chartOptions} />
+                        <div className="h-72 w-full">
+                            <Line data={chartData} options={chartOptions} />
+                        </div>
                     </div>
                 </div>
             </div>
