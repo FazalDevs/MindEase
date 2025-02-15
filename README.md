@@ -1,7 +1,5 @@
 # MindEase - Your AI-Powered Mental Health Companion
 
-![MindEase Banner](https://your-image-link.com)
-
 ## 🧠 About MindEase
 MindEase is an AI-powered mental health companion designed to provide support, guidance, and tools to enhance mental well-being. It offers features like AI therapy, journaling, mood tracking, and anonymous group discussions to create a safe space for users to manage their emotions and mental health.
 
