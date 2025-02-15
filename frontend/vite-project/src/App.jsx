@@ -6,9 +6,13 @@ import LandingPage from "./components/landingPage";
 import Journal from "./components/journal";
 import Signup from "./components/signup";
 import Dashboard from "./components/dashboard";
-import Navbar from "./components/navbar";
+import { Toaster } from 'react-hot-toast'
+import ChatBot from "./components/ChatBot";
+// import Navbar from "./components/navbar";
+// import AIVent from "./components/AIVent";
 import "./index.css";
 import "./App.css";
+
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("jwt"));
@@ -27,6 +31,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/mood" element={<MoodChart />} />
+        <Route path="/chat" element={<ChatBot />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/journal" element={<Journal />} />
@@ -37,6 +42,7 @@ function App() {
         />
         <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
+      <Toaster />
     </div>
   );
 }

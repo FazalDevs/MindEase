@@ -30,8 +30,8 @@ function Signup({ setToken }) {
             const token = response.data.token;
             if (token) {
                 toast.success("Signup successful!");
-                localStorage.setItem("jwt", token); // Save token to localStorage
-                setToken(token); // Update token in App state
+                localStorage.setItem("jwt", token);
+                setToken(token);
                 navigate("/dashboard");
                 setUsername("");
                 setEmail("");

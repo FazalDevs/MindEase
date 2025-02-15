@@ -2,6 +2,8 @@ import express from 'express';
 import journalRoute from './routes/journal.route.js'
 import userRoute from './routes/user.route.js'
 import moodRoute from './routes/mood.routes.js'
+import chatRoute from './routes/chat.route.js'
+
 const app = express()
 import dotenv from 'dotenv';
 dotenv.config();
@@ -17,12 +19,15 @@ app.use(cors({
     origin: "http://localhost:5173",
     credentials: true, // Enable cookies or authorization headers
 }));
+// app.use(bodyParser.json());
 
 
 //routes
 app.use('/journal', journalRoute)
 app.use('/user', userRoute)
 app.use('/mood', moodRoute)
+app.use('/chat', chatRoute)
+
 
 app.get('/', function (req, res) {
     res.send('Hello World')

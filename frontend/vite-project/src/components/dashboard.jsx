@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import toast from 'react-hot-toast';
 const Dashboard = () => {
     const navigate = useNavigate();
     const token = localStorage.getItem("jwt")
@@ -17,7 +18,7 @@ const Dashboard = () => {
                     "Content-Type": "application/json",
                 },
             });
-
+            toast.success("Logged out successfully")
             // setIsLoggedIn(false);
             navigate("/login");
         } catch (error) {
@@ -50,7 +51,7 @@ const Dashboard = () => {
                                 Track Your Mood
                             </a>
                             <a
-                                href="/ai"
+                                href="/chat"
                                 className="text-gray-700 hover:text-blue-600 font-medium transition"
                             >
                                 Chat with AI

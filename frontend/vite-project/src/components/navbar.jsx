@@ -1,41 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function Navbar() {
-    // const [isLoggedIn, setIsLoggedIn] = useState(false); // Initialize state as false
+    // const [isLoggedIn, setIsLoggedIn] = useState(false); 
     const navigate = useNavigate();
     const token = localStorage.getItem("jwt")
 
     const handleLogout = async () => {
         try {
-            // Remove JWT token from localStorage
-            localStorage.removeItem("jwt");
 
-            // Call your logout API (optional)
             await axios.get("http://localhost:4005/user/logout", {
                 withCredentials: true,
                 headers: {
                     "Content-Type": "application/json",
                 },
             });
+            localStorage.removeItem("jwt");
+            console.log("logout")
+            toast.success("Logout successful");
 
             // setIsLoggedIn(false);
             navigate("/");
         } catch (error) {
+            toast.error("Logout Unsuccessful");
             console.error("Error during logout:", error);
         }
     };
 
     const handleLogin = () => {
-        navigate("/dashboard"); // Redirect to dashboard
+        navigate("/dashboard");
     };
 
     return (
         <div>
             <nav className="bg-white shadow-md fixed w-full z-10">
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/" className="text-3xl font-bold text-blue-600">
+                    <a href="/dashboard" className="text-3xl font-bold text-blue-600">
                         MindEase
                     </a>
                     <div className="space-x-6 flex items-center">
@@ -52,7 +54,7 @@ function Navbar() {
                             Track Your Mood
                         </a>
                         <a
-                            href="/ai"
+                            href="/chat"
                             className="text-gray-700 hover:text-blue-600 font-medium transition"
                         >
                             Chat with AI

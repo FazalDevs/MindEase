@@ -26,13 +26,13 @@ function Login({ setToken }) {
             if (token) {
                 toast.success("Login successful");
                 localStorage.setItem("jwt", token);
-                setToken(token); // Update token state in App
+                setToken(token);
                 navigate("/dashboard");
             } else {
                 toast.error("Failed to retrieve token. Please try again.");
             }
         } catch (error) {
-            console.error("Error during login:", error);
+            console.log("Error during login:", error);
             toast.error(error.response?.data?.message || "Login failed. Please try again.");
         }
     };

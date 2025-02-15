@@ -152,7 +152,6 @@ const MoodChart = () => {
                         Mood Tracker
                     </h2>
 
-                    {/* Mood Legend */}
                     <div className="flex justify-between items-center mb-6">
                         <p className="text-sm font-medium text-gray-600">
                             <span className="text-red-500 font-bold">1</span>: Sad |{" "}
@@ -161,7 +160,6 @@ const MoodChart = () => {
                         </p>
                     </div>
 
-                    {/* Input for mood */}
                     <div className="mb-6 flex items-center justify-between">
                         <input
                             type="number"
@@ -178,7 +176,6 @@ const MoodChart = () => {
                         </button>
                     </div>
 
-                    {/* Chart */}
                     <div className="h-72">
                         <Line data={chartData} options={chartOptions} />
                     </div>

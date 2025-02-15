@@ -1,17 +1,17 @@
-import Mood from "../models/mood.model.js"; // Import your Mood model
+import Mood from "../models/mood.model.js";
 
-// Add a new mood entry
+
 export const addMood = async (req, res) => {
     try {
         const { mood } = req.body;
-        const userId = req.userId; // Assuming `userId` is attached to the request via middleware (e.g., JWT)
+        const userId = req.userId;
 
-        // Validate input
+
         if (!mood || mood < 1 || mood > 5) {
             return res.status(400).json({ message: "Mood must be a number between 1 and 5." });
         }
 
-        // Create and save the mood entry
+
         const moodEntry = new Mood({
             mood,
             userId,
@@ -24,13 +24,12 @@ export const addMood = async (req, res) => {
     }
 };
 
-// Fetch all moods for a user (optional: filter by date range)
+
 export const getMoods = async (req, res) => {
     try {
-        const userId = req.userId; // Assuming `userId` is attached to the request via middleware
+        const userId = req.userId;
         const { startDate, endDate } = req.query;
 
-        // Build query filter
         const filter = { userId };
 
         const moods = await Mood.find(filter);
@@ -41,11 +40,11 @@ export const getMoods = async (req, res) => {
     }
 };
 
-// Delete a mood entry
+
 export const deleteMood = async (req, res) => {
     try {
-        const { id } = req.params; // Mood ID to delete
-        const userId = req.userId; // Assuming `userId` is attached to the request via middleware
+        const { id } = req.params;
+        const userId = req.userId;
 
         const mood = await Mood.findOneAndDelete({ _id: id, userId });
 

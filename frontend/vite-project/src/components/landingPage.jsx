@@ -7,7 +7,6 @@ const LandingPage = () => {
             <Navbar />
             <div className="bg-gray-100 min-h-screen font-sans pt-16">
 
-                {/* Hero Section */}
                 <header header className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-20" >
                     <div className="container mx-auto px-6 text-center">
                         <h2 className="text-4xl font-bold mb-4">
@@ -26,10 +25,9 @@ const LandingPage = () => {
                     </div>
                 </header >
 
-                {/* Features Section */}
                 <section section className="py-16 bg-gray-100" >
                     <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Journal Feature */}
+
                         <div
                             id="journal"
                             className="bg-white border rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow"
@@ -52,7 +50,6 @@ const LandingPage = () => {
                             </a>
                         </div>
 
-                        {/* Mood Tracker Feature */}
                         <div
                             id="mood-tracker"
                             className="bg-white border rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow"
@@ -74,7 +71,6 @@ const LandingPage = () => {
                             </a>
                         </div>
 
-                        {/* Chat with AI Feature */}
                         <div
                             id="ai-chat"
                             className="bg-white border rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow"
@@ -89,7 +85,7 @@ const LandingPage = () => {
                                 Get instant support and insights from our AI assistant.
                             </p>
                             <a
-                                href="#ai-chat"
+                                href="/chat"
                                 className="text-blue-600 font-medium hover:underline"
                             >
                                 Chat Now →
@@ -98,7 +94,6 @@ const LandingPage = () => {
                     </div>
                 </section >
 
-                {/* Footer */}
                 <footer footer className="bg-blue-700 text-white py-6" >
                     <div className="container mx-auto px-6 text-center">
                         <p className="text-sm">

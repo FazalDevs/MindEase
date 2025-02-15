@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
         }
         const schema = z.object({
             name: z.string(),
-            email: z.string().email({ errors: "Invalide Email" }),
+            email: z.string().email({ errors: "Invalid Email" }),
             password: z.string().min(6, { errors: "Not long Enough" }),
         });
         const validate = await schema.safeParse({ name, email, password });
