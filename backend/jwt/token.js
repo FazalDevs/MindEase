@@ -6,7 +6,7 @@ export const generateToken = async (id, res) => {
     });
     res.cookie('jwt', token, {
         httpOnly: true,
-        secure: false,
+        secure: process.env.NODE_ENV === "production",
         sameSite: 'lax',
         path: '/',
     });
