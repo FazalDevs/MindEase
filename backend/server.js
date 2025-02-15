@@ -16,7 +16,7 @@ const port = process.env.PORT || 4000;
 app.use(cookieParser())
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://frontend-35ey.onrender.com",
     credentials: true, // Enable cookies or authorization headers
 }));
 // app.use(bodyParser.json());
