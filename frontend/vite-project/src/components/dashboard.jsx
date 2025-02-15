@@ -130,7 +130,7 @@ const Dashboard = () => {
                             <h2 className="text-2xl font-bold text-gray-700 mb-4">Chat with AI</h2>
                             <p className="text-gray-600 text-center mb-6">Have meaningful conversations with our AI therapist.</p>
                             <a
-                                href="/chat-ai"
+                                href="/chat"
                                 className="px-6 py-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition"
                             >
                                 Chat Now
