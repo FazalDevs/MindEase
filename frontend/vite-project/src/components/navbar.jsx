@@ -44,13 +44,12 @@ function Navbar() {
                     )}
                 </div>
 
-                {/* Mobile Menu Toggle */}
                 <button className="md:hidden p-2 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
                     {menuOpen ? <span className="text-2xl">✖</span> : <span className="text-2xl">☰</span>}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+
             {menuOpen && (
                 <div className="md:hidden bg-white shadow-md absolute w-full left-0 top-16 p-4 flex flex-col space-y-4 items-center">
                     <a href="/journal" className="text-gray-700 hover:text-blue-600 font-medium transition">Journal</a>

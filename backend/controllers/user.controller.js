@@ -65,4 +65,12 @@ export const logoutUser = async (req, res) => {
         return res.status(500).json({ message: "User not logged out" });
     }
 }
+export const pingServer = async (req, res) => {
+    try {
+        res.status(200).json({ message: "Server is alive" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Ping failed");
+    }
+};
 export default {};

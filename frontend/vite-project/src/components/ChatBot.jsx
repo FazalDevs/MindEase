@@ -11,8 +11,8 @@ const ChatBot = () => {
         if (!userMessage.trim() || loading) return;
 
         setChatHistory((prev) => [...prev, { sender: "user", message: userMessage }]);
-        setUserMessage(""); // Clear input field immediately
-        setLoading(true); // Start loading state
+        setUserMessage("");
+        setLoading(true);
 
         try {
             const { data } = await axios.post("https://mindease-juv4.onrender.com/chat/chat", {
@@ -28,7 +28,7 @@ const ChatBot = () => {
             ]);
         }
 
-        setLoading(false); // Stop loading state
+        setLoading(false);
     };
 
     return (
@@ -83,12 +83,12 @@ const ChatBot = () => {
                             onChange={(e) => setUserMessage(e.target.value)}
                             placeholder="Type your message..."
                             className="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                            disabled={loading} // Disable input while loading
+                            disabled={loading}
                         />
                         <button
                             onClick={sendMessage}
                             className="ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400"
-                            disabled={loading} // Disable button while loading
+                            disabled={loading}
                         >
                             {loading ? "Sending..." : "Send"}
                         </button>
